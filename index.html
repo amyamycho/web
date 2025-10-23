@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FEELM</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Baskervville:ital,wght@0,400;0,700;1,400&family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+
+  <style>
+    /* 기본설정 */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: sans-serif;
+      background-color: #ffffff; 
+      color: #000000; 
+    }
+
+    /* 2. Header (검은색 배경에 흰색 텍스트) */
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      height: 70px;
+      background-color: rgba(0, 0, 0, 0.115);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 60px;
+      z-index: 10;
+      backdrop-filter: blur(20px);
+    }
+
+    .logo {
+      font-size: 22px;
+      font-weight: 900;
+      color: #fff;
+      position: relative;
+    }
+
+    .logo a {
+        text-decoration: none;
+        color: #fff;
+        display: inline-block;
+    }
+
+    .rights-sign-1{
+      font-size:15px;
+      position:absolute;
+      top:3%;
+      transform:translateX(3px)
+    }
+
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 50px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #fff;
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      color: #ededed;
+    }
+
+    nav a:active {
+    color: #373737;
+    }
+
+    /* 3. Main Visual 섹션 */
+    .mainvisual {
+        position: relative;
+        width: 100%;
+        height: 100vh;
+        background-image: url('mainvisual.jpg');
+        background-size: cover;
+        background-position: center;
+        display: flex;
+        align-items: flex-end;
+        justify-content: flex-start;
+        padding-left: 60px;
+        padding-bottom: 60px;
+    }
+
+    .mainvisual-text {
+        color: #fffdf0;
+        font-family: sans-serif;
+        font-size: 250px;
+        font-weight: 900;
+        line-height: 0.9;
+        text-align: left;
+    }
+
+    /* 4. 텍스트 그리드 섹션 (.main-intro) */
+    .main-intro {
+        background-color: #ffffff; /* 이미지에 맞춰 흰색 배경 */
+        color: #000; /* 검은색 텍스트 */
+        padding-left: 60px;
+        padding-right: 70px;
+        padding-top: 30px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    /* 상단 헤드라인 스타일 */
+    .slogan-small {
+        font-size: 30px;
+        font-weight: bold;
+    }
+
+    .slogan-main {
+        font-family: sans-serif;
+        font-size: 100px;
+        font-weight: 900;
+        letter-spacing: -5px;
+        margin-bottom: 50px; 
+        position:relative 
+    }
+
+    .rights-sign-2{
+      font-size:30px;
+      position:absolute;
+      top:10%;
+      transform:translateX(8px)
+    }
+
+    /* 5. 하단 정보 컨테이너 (div로 변경) */
+    .intro-bottom-info { 
+        padding-bottom: 100px;
+        padding-top: 100px;
+    }
+
+    .divider {
+        width: 100%;
+        border: none;
+        border-top: 1px solid #00000085; /* 검은색 구분선 */
+        margin-bottom: 30px; 
+    }
+
+    /* CSS Grid를 사용한 3컬럼 레이아웃 */
+    .bottom-content-wrap {
+        display: grid;
+        grid-template-columns: 3fr 2.5fr 3fr; 
+        gap: 30px;
+        align-items: flex-start;
+    }
+
+    .bottom {
+        font-size: 16px;
+        line-height: 1.7; 
+        text-align: left;
+    }
+
+    /* 컬럼별 스타일 */
+    .quote { font-weight: bold; font-size: 16px; white-space: nowrap; }
+    .definition { font-size: 16px; line-height: 1.8; }
+    .role { font-size: 16px; line-height: 1.8; }
+
+    /* --------푸터--------- */
+    footer {
+        background-color: #000; 
+        color: #fff;
+        padding: 120px 60px 30px 60px; 
+        margin-top: 200px;
+    }
+    
+    
+    .footer-wrap {
+        display: flex;
+        justify-content: space-between; /* 좌우 콘텐츠 분리 */
+        align-items: flex-end; /* 하단 정렬 */
+    }
+    
+    /* 왼쪽 (로고랑 저작권) */
+    .footer-left {
+        display: flex;
+        flex-direction: column;
+        gap: 5px; 
+    }
+    
+    .footer-slogan {
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 1;
+    }
+    
+    .footer-logo {
+        font-family: sans-serif;
+        font-size: 50px; 
+        font-weight: 900;
+        line-height: 1;
+        letter-spacing: -2px;
+        margin-bottom: 20px; 
+        position:relative;
+    }
+    
+    .rights-sign-3{
+          font-size:20px;
+          position:absolute;
+          top:10%;
+          transform:translateX(3px)
+        }
+    
+    .copyright {
+        font-size: 14px;
+        opacity: 0.6;
+        font-weight: 500;
+    }
+    
+    /* 오른쪽 (연락처) */
+    .footer-right {
+        text-align: right;
+        font-size: 15px;
+        line-height: 1.8;
+        font-weight: 500;
+    }
+
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="logo">
+      <a href="index.html">FEELM<span class=rights-sign-1>©</span></a>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="film.html">FILM</a></li>
+        <li><a href="scene.html">SCENE</a></li>
+        <li><a href="mood.html">MOOD</a></li>
+        <li><a href="echo.html">ECHO</a></li>
+        <li><a href="routine.html">ROUTINE</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="mainvisual">
+    <div class="overlay"></div>
+    <div class="mainvisual-text">
+        Feel <br>the Film.
+    </div>
+  </section>
+
+  <section class="main-intro">
+    
+    <p class="slogan-small">Feel the Film,</p>
+    <h1 class="slogan-main">FEELM<span class="rights-sign-2">©</span></h1>
+
+    <div class="intro-bottom-info"> 
+        <hr class="divider">
+        <div class="bottom-content-wrap">
+            
+            <p class="bottom quote">
+                " 순간의 잔상, 영원이 되다. "
+            </p>
+
+            <p class="bottom definition">
+                FEELM은 선정한 다섯 편의 영화를 중심으로, <br>
+                영화의 감정과 시각적 톤을 전달하는 프라이빗 웹 아카이브입니다.
+            </p>
+
+            <p class="bottom role">
+                단순한 영화 소개를 넘어, 나만의 영화 경험을 기록하고 공유하는 공간입니다. <br>
+                프레임 너머의 감동을 수집하고, 당신의 내면을 닮은 무드를 FEELM에서 발견하세요. <br>
+                잠시 멈춰 서서, 당신의 일상에 스며든 가장 깊은 느낌을 천천히 되돌아보세요.
+            </p>
+        </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-wrap">
+        
+        <div class="footer-left">
+            <p class="footer-slogan">Feel the Film,</p>
+            <h2 class="footer-logo">FEELM<span class="rights-sign-3">©</span></h2>
+            <p class="copyright">Copyright 2025. Eunjo Cho All rights reserved.</p>
+        </div>
+        
+        <div class="footer-right">
+            <p class="contact-item"><b>INSTAGRAM</b>  @amyamycho</p>
+            <p class="contact-item"><b>E-MAIL</b>  heart.amy2975@gmail.com</p>
+            <p class="contact-item"><b>TEL</b>  +82 10-2975-9334</p>
+        </div>
+        
+    </div>
+</footer>
+
+</body>
+</html>
