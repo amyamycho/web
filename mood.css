@@ -1,0 +1,298 @@
+/* 기본설정 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: "BookkMyungjo";
+    src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302@1.0/BookkMyungjo-Lt.woff2")
+        format("woff2");
+    font-weight: 400;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "BookkMyungjo";
+    src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302@1.0/BookkMyungjo-Bd.woff2")
+        format("woff2");
+    font-weight: 700;
+    font-display: swap;
+}
+
+body {
+    font-family: sans-serif;
+    background-color: #ffffff;
+    color: #000000;
+}
+
+/* 헤더 */
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 70px;
+    background-color: rgba(0, 0, 0, 0.211);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 60px;
+    z-index: 10;
+    backdrop-filter: blur(20px);
+}
+
+.logo {
+    font-size: 22px;
+    font-weight: 900;
+    color: #fff;
+    position: relative;
+}
+
+.logo a {
+    text-decoration: none;
+    color: #fff;
+    display: inline-block;
+}
+
+.rights-sign-1 {
+    font-size: 15px;
+    position: absolute;
+    top: 3%;
+    transform: translateX(3px);
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 50px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: #ededed;
+}
+
+nav a:active {
+    color: #373737;
+}
+
+/* 페이지 타이틀 섹션 */
+.mood-visual {
+    padding-top: 120px;
+    padding-left: 60px;
+    padding-right: 60px;
+    position: relative;
+    text-align: left;
+}
+
+.mood-title-wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 40px;
+}
+
+.mood-title {
+    font-size: 200px;
+    font-weight: 900;
+    letter-spacing: -10px;
+    line-height: 1;
+    font-family: sans-serif;
+}
+
+.mood-intro-text {
+    font-size: 16px;
+    line-height: 1.7;
+    /* max-width: 1500px; */
+    border-bottom: 1px solid black;
+    padding-bottom: 40px;
+}
+
+/* ----------무드 섹션 시작----------- */
+.mood-wrap {
+    margin-top: 150px;
+    padding: 0 60px;
+}
+
+/* 2열 카드 그리드 */
+.mood-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+}
+
+/* 카드 전체 영역 */
+.md-wrap {
+    position: relative;
+    height: 400px;
+    width: 100%;
+    /* padding: 0 2%; */
+    /* border: 1px solid purple; */
+    display: flex;
+    /* justify-content: flex-start; */
+    align-items: flex-end;
+    /* padding: 20px; */
+    color: #fff;
+    overflow: hidden;
+    transition: all 0.6s ease;
+}
+
+/* hover영역 감싸기 */
+.mood-hover {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+/* 배경 카드 */
+.mood-card {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    transition: all 0.8s ease;
+}
+
+/* hover시 배경 전환인데 스케일 1.1은 너무 커서 1.04로햇응 언니가 조정해두댐 */
+.md-wrap:hover .mood-card {
+    transform: scale(1.04);
+}
+
+/* 색상 지정 */
+.red .mood-card {
+    background-color: #e63946;
+}
+.mint .mood-card {
+    background-color: #a8dadc;
+}
+.green .mood-card {
+    background-color: #576e38;
+}
+.orange .mood-card {
+    background-color: #ea7621;
+}
+.navy .mood-card {
+    background-color: #243d4c;
+    /* height: 400px; */
+}
+
+/* .md-wrap.navy {
+    grid-column: 1 / span 2;
+} */
+
+/* 각 카드에 원하는 이미지 넣으면 돼요 누나 */
+.md-wrap:hover.red .mood-card {
+    background-image: url("bones_mood.jpg");
+}
+.md-wrap:hover.mint .mood-card {
+    background-image: url("cyborg_mood.jpg");
+}
+.md-wrap:hover.green .mood-card {
+    background-image: url("spring_mood.jpg");
+}
+.md-wrap:hover.orange .mood-card {
+    background-image: url("dune_mood.jpg");
+}
+.md-wrap:hover.navy .mood-card {
+    background-image: url("happyend_mood.jpg");
+}
+
+/* 텍스트 + 오디오 그룹 */
+.mood-info {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    width: 100%;
+    align-items: center;
+    gap: 20px;
+    justify-content: space-between;
+    padding: 10px 2%;
+}
+
+
+/* 제목 */
+.mood-info h3 {
+    margin-left: 5px;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.audio-wrap {
+    margin-top: 20px;
+    margin-left: 60px;
+    margin-right: 60px;
+    display: flex;
+    gap: 23px;
+}
+
+/* 오디오바 길이는 px로 조절하는 거엿어 ㅎㅎ 성공 */
+.audio_container audio {
+    width: 300px;
+}
+
+/* --------푸터--------- */
+footer {
+    background-color: #000;
+    color: #fff;
+    padding: 120px 60px 30px 60px;
+    margin-top: 300px;
+}
+
+.footer-wrap {
+    display: flex;
+    justify-content: space-between; /* 좌우 콘텐츠 분리 */
+    align-items: flex-end; /* 하단 정렬 */
+}
+
+/* 왼쪽 (로고랑 저작권) */
+.footer-left {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.footer-slogan {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1;
+}
+
+.footer-logo {
+    font-family: sans-serif;
+    font-size: 50px;
+    font-weight: 900;
+    line-height: 1;
+    letter-spacing: -2px;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.rights-sign-3 {
+    font-size: 20px;
+    position: absolute;
+    top: 10%;
+    transform: translateX(3px);
+}
+
+.copyright {
+    font-size: 14px;
+    opacity: 0.6;
+    font-weight: 500;
+}
+
+/* 오른쪽 (연락처) */
+.footer-right {
+    text-align: right;
+    font-size: 15px;
+    line-height: 1.8;
+    font-weight: 500;
+}
